@@ -25,6 +25,7 @@ class AFElement {
     links: AFElementLinks;
     attributes: Array<AFAttribute> = [];
     chardata: any = [];
+    lmarker: L.Marker;
     
     constructor(connector: AFConnector, options: AFElementOptions) {
         let afelement = this;
@@ -38,8 +39,6 @@ class AFElement {
         afelement.getAttributes();
     }
 
-    // TODO
-    // this doesnt work perfectly - not all attributes are ready when the popup info is made
     getAttributes = (): void => {
         let afelement = this;
 
@@ -64,11 +63,10 @@ class AFElement {
         });
     }
 
-    // need to make a lacking geospatial icon
     getListHtml = (): string => {
         let afelement = this;
 
-        return "<li id='" + afelement.webid + "' class='liElement hover'><a href='#'>" + afelement.name + "</a></li>";
+        return "<li id='" + afelement.webid + "' class='list-group-item list-group-item-action hover liElement'><a href='#'>" + afelement.name + "<i class='fas fa-globe-americas hide'></i></a></li>";
     }
 
     visualize = (): void => {
@@ -141,10 +139,10 @@ class AFElement {
     private generatePopupInfo = (): string => {
         let afelement = this;
 
-        let table = "<table>";
+        let table = "<h5>" + afelement.name + " Current Values</h5><table>";
         for(let i = 0; i < afelement.attributes.length; i++) {
             let attribute = afelement.attributes[i];
-            table += "<tr><td>" + attribute.name + "</td><td>" + (attribute.currentValue || "") + "</td></tr>";
+            table += "<tr><td>" + attribute.name + "</td><td>" + attribute.currentValue + " " + attribute.unitdisplay + "</td></tr>";
         }
         table += "</table>"
 

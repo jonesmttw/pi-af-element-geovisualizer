@@ -2,8 +2,6 @@ class AFElement {
     constructor(connector, options) {
         this.attributes = [];
         this.chardata = [];
-        // TODO
-        // this doesnt work perfectly - not all attributes are ready when the popup info is made
         this.getAttributes = () => {
             let afelement = this;
             $.ajax({
@@ -25,10 +23,9 @@ class AFElement {
                 }
             });
         };
-        // need to make a lacking geospatial icon
         this.getListHtml = () => {
             let afelement = this;
-            return "<li id='" + afelement.webid + "' class='liElement hover'><a href='#'>" + afelement.name + "</a></li>";
+            return "<li id='" + afelement.webid + "' class='list-group-item list-group-item-action hover liElement'><a href='#'>" + afelement.name + "<i class='fas fa-globe-americas hide'></i></a></li>";
         };
         this.visualize = () => {
             let afelement = this;

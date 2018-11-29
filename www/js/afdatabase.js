@@ -3,7 +3,7 @@ class AFDatabase {
         this.afelements = [];
         this.getListHtml = () => {
             let afdatabase = this;
-            return "<li id='" + afdatabase.webid + "' class='liDatabase hover'><a href='#'>" + afdatabase.name + "</a></li>";
+            return "<li id='" + afdatabase.webid + "' class='list-group-item list-group-item-action hover liDatabase'><a href='#'><i class='fas fa-database'></i>" + afdatabase.name + "</a></li>";
         };
         this.getElements = () => {
             let afdatabase = this;
@@ -28,8 +28,6 @@ class AFDatabase {
                     afdatabase.afelements.push(afelement);
                     $("#elementsList").append(afelement.getListHtml());
                 }
-                // TODO
-                // pop up something that says unable to find lat lng
                 $(".liElement").click(function () {
                     let id = $(this).prop("id");
                     let element = afdatabase.getElementById(id);

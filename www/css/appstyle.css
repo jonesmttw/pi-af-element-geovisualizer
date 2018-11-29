@@ -28,6 +28,14 @@
     overflow: auto;
 }
 
+#afDisplayHeader {
+    padding-left: 5px;
+}
+
+.modal-footer .btn-primary .fas {
+    margin-right: 3px;
+}
+
 #afDisplayLoading {
     position: absolute;
     top: 0;
@@ -46,6 +54,10 @@
 #btnBack {
     width: 100%;
     text-align: left;
+}
+
+#btnBack .fas {
+    margin-right: 3px;
 }
 
 #chartAFData {
@@ -74,5 +86,19 @@
 }
 
 #elementsList {
-    padding-left: 25px;
+    padding: 3px;
+}
+
+.list-group-item {
+    padding: 5px;
+}
+
+.liDatabase .fas {
+    margin-right: 5px;
+}
+
+.liElement .fas {
+    float: right;
+    color: #007bff;
+    padding-top: 4px;
 }
