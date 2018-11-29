@@ -1,0 +1,78 @@
+.hide {
+    display: none;
+}
+
+.hover:hover {
+    cursor: pointer;
+}
+
+#l-map {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#afDisplay {
+    position: absolute;
+    z-index: 10;
+    top: 90px;
+    left: 10px;
+    background-color: white;
+    min-height: 200px;
+    max-height: 400px;
+    width: 200px;
+    border: 2px solid rgba(0, 0, 0, .2);
+    overflow: auto;
+}
+
+#afDisplayLoading {
+    position: absolute;
+    top: 0;
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 43, 43, 0.5);
+    color: white;
+}
+
+#afDisplayLoading .fas {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#btnBack {
+    width: 100%;
+    text-align: left;
+}
+
+#chartAFData {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    z-index: 10;
+}
+
+#chartLoading {
+    position: absolute;
+    top: 0;
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 43, 43, 0.5);
+    color: white;
+}
+
+#chartLoading .fas {
+    margin-top: 150px;
+    margin-left: 250px;
+}
+
+#elementsList {
+    padding-left: 25px;
+}

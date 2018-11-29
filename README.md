@@ -1,6 +1,6 @@
 # PI AF Element Geovisualizer
 
-My final project for the PI Web API course. Purpose is to allow users to connect to any PI Server, and then map any AF Elements that have a latitude and longitude attribute.  In addition to mapping the elements, you can also graph the recorded values for selected AF Elements.
+My final project for the PI Web API course. Purpose is to allow users to connect to any PI Server, and then map any AF Elements that have a latitude and longitude attribute.  In addition to mapping the elements, you can also graph the recorded values for selected AF Elements. I did write this in TypeScript but everything should already be compiled to JavaScript to run the app after a pull down the repository.
 
 To run the app (after an npm install): 
 ```
