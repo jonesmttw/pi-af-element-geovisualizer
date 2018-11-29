@@ -89,10 +89,10 @@ class AFElement {
         // not all attributes are ready when the lat lng are ready
         this.generatePopupInfo = () => {
             let afelement = this;
-            let table = "<table>";
+            let table = "<h5>" + afelement.name + " Current Values</h5><table>";
             for (let i = 0; i < afelement.attributes.length; i++) {
                 let attribute = afelement.attributes[i];
-                table += "<tr><td>" + attribute.name + "</td><td>" + (attribute.currentValue || "") + "</td></tr>";
+                table += "<tr><td>" + attribute.name + "</td><td>" + attribute.currentValue + " " + attribute.unitdisplay + "</td></tr>";
             }
             table += "</table>";
             return table;
@@ -106,8 +106,13 @@ class AFElement {
                 afelement.lng = lng;
             }
             if (afelement.lat && afelement.lng) {
-                map.setPoint(afelement.lat, afelement.lng, afelement.generatePopupInfo());
+                afelement.lmarker = map.setPoint(afelement.lat, afelement.lng, afelement.generatePopupInfo());
+                $("#" + afelement.webid + ", .fas").removeClass("hide");
             }
+        };
+        this.updatePopupInfo = () => {
+            let afelement = this;
+            afelement.lmarker.setPopupContent(afelement.generatePopupInfo());
         };
         let afelement = this;
         afelement.afconnector = connector;

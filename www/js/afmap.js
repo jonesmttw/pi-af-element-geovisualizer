@@ -5,6 +5,7 @@ class AFMap {
             let point = new L.Marker([lat, lng]);
             point.bindPopup(popupinfo);
             point.addTo(afmap.map);
+            return point;
         };
         let afmap = this;
         afmap.map = L.map(divid).setView([37.634, -101.049], 5);

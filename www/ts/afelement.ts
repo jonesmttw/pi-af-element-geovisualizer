@@ -163,7 +163,14 @@ class AFElement {
         }
 
         if(afelement.lat && afelement.lng) {
-            map.setPoint(afelement.lat, afelement.lng, afelement.generatePopupInfo());
+            afelement.lmarker = map.setPoint(afelement.lat, afelement.lng, afelement.generatePopupInfo());
+            $("#" + afelement.webid + ", .fas").removeClass("hide");
         }
+    }
+
+    updatePopupInfo = (): void => {
+        let afelement = this;
+
+        afelement.lmarker.setPopupContent(afelement.generatePopupInfo());
     }
 }

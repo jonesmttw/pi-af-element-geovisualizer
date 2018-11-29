@@ -15,6 +15,7 @@ class AFAttribute {
     webid: string;
     name: string;
     unittype: string;
+    unitdisplay: string;
     currentValue: any;
     links: AFAttributeLinks;
     isLatitude: boolean;
@@ -40,6 +41,11 @@ class AFAttribute {
             beforeSend: afattribute.afconnector.authBeforeSend
         }).done((data) => {
             afattribute.currentValue = data["Value"];
+            afattribute.unitdisplay = data["UnitsAbbreviation"];
+
+            if(afattribute.afelement.lmarker) {
+                afattribute.afelement.updatePopupInfo();
+            }
 
             if(afattribute.isLatitude) { 
                 afattribute.afelement.geoReady(afattribute.currentValue, null);

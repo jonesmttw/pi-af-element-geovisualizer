@@ -10,11 +10,13 @@ class AFMap {
         afmap.map.addLayer(osmLayer);
     }
 
-    setPoint = (lat: number, lng: number, popupinfo: string): void => {
+    setPoint = (lat: number, lng: number, popupinfo: string): L.Marker => {
         let afmap = this;
 
         let point = new L.Marker([lat, lng]);
         point.bindPopup(popupinfo);
         point.addTo(afmap.map);
+
+        return point;
     }
 }
