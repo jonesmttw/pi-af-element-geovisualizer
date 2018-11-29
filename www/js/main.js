@@ -21,8 +21,8 @@ function connectToAF() {
         }
     }
     else {
+        $(".modal-footer .btn-primary .fas").removeClass("hide");
         conn = new AFConnector(host, username, password);
-        $('#modalConnect').modal('hide');
         conn.getAssetServers();
     }
 }

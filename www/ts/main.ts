@@ -24,8 +24,8 @@ function connectToAF(): void {
             $('#valPassword').removeClass('hide');
         }
     } else {
+        $(".modal-footer .btn-primary .fas").removeClass("hide");
         conn = new AFConnector(host, username, password);
-        $('#modalConnect').modal('hide');
         conn.getAssetServers();
     }
 }

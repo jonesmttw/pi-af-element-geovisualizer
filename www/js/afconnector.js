@@ -12,7 +12,6 @@ class AFConnector {
         };
         this.getAssetServers = () => {
             let afconnector = this;
-            $("#afDisplay").removeClass("hide");
             $.ajax({
                 url: afconnector.proxyUrl + "/" + afconnector.serverUrl + "assetservers",
                 type: "GET",
@@ -23,15 +22,17 @@ class AFConnector {
                     let webid = items[0]["WebId"];
                     afconnector.getDatabases(webid);
                 }
-                else {
-                    //error
-                }
+            }).fail((data) => {
+                $("#alert-failed-connection").removeClass("hide");
+                $(".modal-footer .btn-primary .fas").addClass("hide");
             });
         };
         // list the databases to connect to and begin working through hierarchy 
         this.getDatabases = (webid) => {
             let afconnector = this;
-            $("#afDisplayLoading").removeClass("hide");
+            $('#modalConnect').modal('hide');
+            $("#alert-failed-connection").addClass("hide");
+            $("#afDisplay, #afDisplayLoading").removeClass("hide");
             $.ajax({
                 url: afconnector.proxyUrl + "/" + afconnector.serverUrl + "assetservers/" + webid + "/assetdatabases",
                 type: "GET",
